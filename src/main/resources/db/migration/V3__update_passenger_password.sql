@@ -1,0 +1,5 @@
+ALTER TABLE passenger
+MODIFY password VARCHAR(100);
+
+ALTER TABLE driver
+MODIFY password VARCHAR(100);
