@@ -1,0 +1,2 @@
+ALTER TABLE driver
+MODIFY rating DOUBLE NULL;

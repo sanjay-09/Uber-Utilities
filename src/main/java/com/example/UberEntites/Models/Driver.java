@@ -1,8 +1,8 @@
 package com.example.UberEntites.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -30,6 +30,32 @@ public class Driver extends BaseModel {
     private String password;
 
     private String adharNumber;
+
+
+    @OneToOne(mappedBy = "driver")
+    private Car car;
+
+    @OneToOne
+    private ExactLocation lastKnownLocation;
+
+    @OneToOne
+    private ExactLocation homeLocation;
+
+
+    @Enumerated(value = EnumType.STRING)
+    private DriverApprovedStatus driverApprovedStatus;
+
+
+
+    @DecimalMin(value = "1.00")
+    @DecimalMax(value = "4.99")
+
+    private Double rating;
+
+
+
+
+
 
 
 
